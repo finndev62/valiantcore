@@ -1,12 +1,13 @@
-# BIGPOWERKERNEL (Titan)
+# ValiantCore
 
 ```text
- ____  _________  ____  ____ _       _______ ____  _______ _  _______ __ 
-/ __ )/  _/ ____// __ \/ __ \ | / / ____/ __ \/ / / / ____/ __ \/ |/ / ____/ / 
-/ __  |/ // / __ / /_/ / / / / |/ / __/ / /_/ / / / / __/ / /_/ /  / / __/ / /  
-/ /_/ // // /_/ // ____/ /_/ /|  / /___/ _, _/ /_/ / /___/ _, _/ /|  / /___/ /___
-/_____/___/\____//_/    \____/ | /_____/_/ |_|\____/_____/_/ |_/_/ |_/_____/_____/
-                               |/
+ __     __    _    _       ___  _   _  _____    ____  ___  ____  _____ 
+ \ \   / /   / \  | |      | | | \ | ||_   _|  / ___|/ _ \|  _ \| ____|
+  \ \ / /   / _ \ | |      | | |  \| |  | |   | |   | | | | |_) |  _|  
+   \ V /   / ___ \| |___   | | | |\  |  | |   | |___| |_| |  _ <| |___ 
+    \_/   /_/   \_\_____| |___||_| \_|  |_|    \____|\___/|_| \_\_____|
+
+                 [ ValiantCore 0.5 Beta | x86_64 ]
 About the Project
 
 This is a hobby kernel project built from scratch with zero budget. What makes this project unique is that it is being developed entirely on an Android device. It represents a journey of pushing the limits of mobile development environments to create a functional system architecture.
