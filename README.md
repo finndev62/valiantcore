@@ -1,5 +1,9 @@
 # ValiantCore
 
+![ValiantCore Mascot](assest/cyber-wolf.png)
+
+
+
 ```text
  __     __    _    _       ___  _   _  _____    ____  ___  ____  _____ 
  \ \   / /   / \  | |      | | | \ | ||_   _|  / ___|/ _ \|  _ \| ____|
