@@ -13,7 +13,7 @@ Welcome, ValiantCore's mascot CYBER-WOLF!
    ||  ||     ||    ||  ||         |||    ||   ||  ||  || ||     |||        |||         ||   ||   ||   ||    |||     
     ||||      ||    ||  |||||||  |||||||  ||   ||  ||   ||||     |||         |||||||     |||||    ||    ||   ||||||||
 
-                 [ ValiantCore 0.5 Beta | x86_64 ]
+                 [ ValiantCore 0.6 Beta | x86_64 ]
 About the Project
 
 This is a hobby kernel project built from scratch with zero budget. What makes this project unique is that it is being developed entirely on an Android device. It represents a journey of pushing the limits of mobile development environments to create a functional system architecture.
