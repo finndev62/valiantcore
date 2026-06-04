@@ -1,7 +1,7 @@
 # ValiantCore
 Welcome, ValiantCore's mascot CYBER-WOLF!
 
-![ValiantCore Mascot](assest/cyber-wolf.png)
+![ValiantCore Mascot](assest/cyber-wolf.jpg)
 
 
 
