@@ -1,45 +1,5 @@
-================================================================================
-PROJECT: VALIANTCORE
-AUTHOR: bigpower
-COPYRIGHT (C) 2026 bigpower
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <https://www.gnu.org/licenses/>.
-
---------------------------------------------------------------------------------
-ADDITIONAL TERMS & OBLIGATIONS:
-
-As the original author, bigpower, I explicitly mandate that any derivative work, 
-modification, or distribution of VALIANTCORE must strictly adhere to the 
-Copyleft provisions of the GNU General Public License v3. 
-
-1. OPEN SOURCE MANDATE: You are encouraged to study, share, and improve 
-   VALIANTCORE. However, any modification or derivative project created 
-   using this source code MUST be released under the same or a compatible 
-   open-source license.
-
-2. ATTRIBUTION: Any public distribution or derivative work must retain 
-   the original copyright notice (Copyright (C) 2026 bigpower) and acknowledge 
-   the original authorship of this project.
-
-3. FREEDOM OF SOFTWARE: This project is built on the philosophy of software 
-   freedom. By using or modifying VALIANTCORE, you agree to respect these 
-   principles, ensuring that the code remains accessible and transparent 
-   to the entire developer community.
-================================================================================
-
-
-                    GNU GENERAL PUBLIC LICENSE
+                      GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
