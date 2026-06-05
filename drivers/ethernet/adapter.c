@@ -1,4 +1,4 @@
-#include <network.h>
+#include "../../include/network.h"
 
 static uint32_t pci_read(uint8_t bus, uint8_t slot, uint8_t func, uint8_t offset) {
     uint32_t addr = (uint32_t)((bus << 16) | (slot << 11) |
