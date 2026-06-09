@@ -1,6 +1,6 @@
 # ValiantCore
 
-<img src="assets/cyber-wolf.jpg" alt="Cyber Wolf" width="500"/>
+<img src="assest/cyber-wolf.jpg" alt="Cyber Wolf" width="500"/>
 
 
 <br>
