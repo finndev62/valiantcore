@@ -6,4 +6,23 @@
 </a>
 
 
-<kbd>Click to support</kbd>
+```bash
+
+# Clone repository
+git clone https://github.com/bigpower217th-ui/valiantcore
+cd valiantcore
+
+# compile, automatically installs the necessary tools, produces x32 + x64
+make
+
+# Only for 32 bit (i386)
+make x32
+
+# 64-bit only (x86_64)
+make x64
+
+# clean build/ folder
+make clean
+
+# List all commands
+make help
