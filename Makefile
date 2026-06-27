@@ -21,6 +21,7 @@ BUILD_RUSTX64 = $(BUILD_DIR)/rustX64
 C_SOURCES   := $(shell find . -name "*.c"   -not -path "./$(BUILD_DIR)/*")
 ASM_SOURCES := $(shell find . -name "*.asm" -not -path "./$(BUILD_DIR)/*")
 RS_SOURCES  := $(shell find . -name "*.rs"  -not -path "./$(BUILD_DIR)/*")
+SOURCES := $(filter-out %64.c,$(SOURCES))
 
 CFLAGS = -ffreestanding -O2 -Iinclude -integrated-as
 NASM   = nasm
