@@ -9,7 +9,7 @@ I plan to write a lightweight, user-friendly, fast, and secure operating system 
 ```bash
 
 # Clone repository
-git clone https://github.com/finndev62/valiantcore
+git clone https://github.com/finndev62/valiantcore.git
 cd valiantcore
 
 # compile, automatically installs the necessary tools, produces x32 + x64
