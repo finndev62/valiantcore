@@ -8,6 +8,10 @@ I plan to write a lightweight, user-friendly, fast, and secure operating system 
 
 ```bash
 
+fedora: sudo dnf install git -y
+Debian Distros: sudo apt install git -y
+arch Distros: sudo pacman -S git -y
+
 # Clone repository
 git clone https://github.com/finndev62/valiantcore.git
 cd valiantcore
