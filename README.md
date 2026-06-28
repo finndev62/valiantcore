@@ -13,6 +13,7 @@ I plan to write a lightweight, user-friendly, fast, and secure operating system 
 # arch Distros: sudo pacman -S git -y
 # Android Termux: pkg install git -y
 # Alpine Distro : apk add git -y
+# OpenSUSE Distro : sudo zypper install git -y
 
 # Clone repository
 git clone https://github.com/finndev62/valiantcore.git
