@@ -9,7 +9,7 @@ I plan to write a lightweight, user-friendly, fast, and secure operating system 
 ```bash
 
 # fedora Distros:
-sudo dnf groupinstall "Development Tools" -y && sudo dnf install git -y
+sudo dnf groupinstall "Development Tools" -y
 # Debian Distros
 sudo apt install git build-essential -y
 # OpenSUSE Distro
