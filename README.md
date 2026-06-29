@@ -20,6 +20,10 @@ apk add git build-base
 sudo pacman -S git base-devel --noconfirm
 # Android Termux
 pkg install git build-essential -y
+# Gentoo Linux
+sudo emerge --ask dev-vcs/git sys-devel/make
+# Solus OS
+sudo eopkg install git -c system.devel
 
 # Clone repository
 git clone https://github.com/finndev62/valiantcore.git
