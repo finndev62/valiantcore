@@ -41,7 +41,7 @@ make clean
 make help
 
 # for aarch64 compilation
-chmod 755 build.sh
+chmod +x build.sh
 ./build.sh
 ``` 
 <br>
