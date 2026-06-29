@@ -24,6 +24,8 @@ pkg install git build-essential -y
 sudo emerge --ask dev-vcs/git sys-devel/make
 # Solus OS
 sudo eopkg install git -c system.devel
+# MacOS
+xcode-select --install
 
 # Clone repository
 git clone https://github.com/finndev62/valiantcore.git
