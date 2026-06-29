@@ -82,11 +82,11 @@ void kernel_panic(struct registers regs) {
 
     panic_center(19, "Can't you find the cause of the error?", PANIC_WHITE);
     panic_center(20, "For help:", PANIC_WHITE);
-    panic_center(21, "github.com/bigpower217th-ui/valiantcore", PANIC_YELLOW);
+    panic_center(21, "github.com/finndev62/valiantcore", PANIC_YELLOW);
     panic_center(22, "-> Use the Issues tab <-", PANIC_WHITE);
 
     panic_fill_row(24, PANIC_YELLOW);
-    panic_center(24, "ValiantCore Kernel — github.com/bigpower217th-ui", PANIC_YELLOW);
+    panic_center(24, "ValiantCore Kernel — github.com/finndev62", PANIC_YELLOW);
 
     for (;;) asm volatile ("hlt");
 }
