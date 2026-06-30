@@ -1,6 +1,6 @@
 # ============================================================
 #  ValiantCore Kernel — Makefile
-#  Automatic package manager detection + nasm/clang/rust setup
+#  Automatic package manager detection + nasm/clang/rustup setup
 #  Finds all .c / .asm / .rs files and builds them as X32 / X64
 #
 #  Copyright (C) 2026 bigpower
@@ -19,10 +19,9 @@ BUILD_RUSTX64 = $(BUILD_DIR)/rustX64
 # Auto-discover source files (excluding build/)
 # ------------------------------------------------------------
 C_SOURCES   := $(shell find . -name "*.c"   -not -path "./$(BUILD_DIR)/*")
-C_SOURCES := $(filter-out %64.c,$(C_SOURCES))
+C_SOURCES   := $(filter-out %64.c,$(C_SOURCES))
 ASM_SOURCES := $(shell find . -name "*.asm" -not -path "./$(BUILD_DIR)/*")
 RS_SOURCES  := $(shell find . -name "*.rs"  -not -path "./$(BUILD_DIR)/*")
-SOURCES := $(filter-out %64.c,$(SOURCES))
 
 CFLAGS = -ffreestanding -O2 -Iinclude -integrated-as
 NASM   = nasm
@@ -52,23 +51,35 @@ deps: check-tools
 
 check-tools:
 	@echo "==> Detected package manager: $(PKG_MANAGER)"
-	@missing=0; \
-	command -v nasm   >/dev/null 2>&1 || { echo "  [!] nasm not found";  missing=1; }; \
-	command -v clang  >/dev/null 2>&1 || { echo "  [!] clang not found"; missing=1; }; \
-	command -v rustc  >/dev/null 2>&1 || { echo "  [!] rustc not found"; missing=1; }; \
+	@if command -v sudo >/dev/null 2>&1; then SUDO="sudo"; else SUDO=""; fi; \
+	if dpkg -l rustc >/dev/null 2>&1 && [ "$(PKG_MANAGER)" = "apt" ]; then \
+		echo "==> Removing conflicting 'rustc' package (rustup will replace it)..."; \
+		$$SUDO apt-get remove -y rustc 2>/dev/null || true; \
+	fi; \
+	missing=0; \
+	command -v make   >/dev/null 2>&1 || { echo "  [!] make not found";   missing=1; }; \
+	command -v nasm   >/dev/null 2>&1 || { echo "  [!] nasm not found";   missing=1; }; \
+	command -v clang  >/dev/null 2>&1 || { echo "  [!] clang not found";  missing=1; }; \
+	command -v rustup >/dev/null 2>&1 || { echo "  [!] rustup not found"; missing=1; }; \
 	if [ "$$missing" = "1" ]; then \
 		echo "==> Installing missing tools ($(PKG_MANAGER))..."; \
 		case "$(PKG_MANAGER)" in \
-			apt) sudo apt-get update && sudo apt-get install -y nasm clang rustc ;; \
-			dnf) sudo dnf install -y nasm clang rust ;; \
-			pacman) sudo pacman -Sy --noconfirm nasm clang rust ;; \
-			apk) sudo apk add --no-cache nasm clang rust ;; \
-			zypper) sudo zypper install -y nasm clang rust ;; \
+			apt) $$SUDO apt-get update && $$SUDO apt-get install -y build-essential nasm clang rustup ;; \
+			dnf) $$SUDO dnf groupinstall -y "Development Tools" && $$SUDO dnf install -y nasm clang rustup ;; \
+			pacman) $$SUDO pacman -Sy --noconfirm base-devel nasm clang rustup ;; \
+			apk) $$SUDO apk add --no-cache build-base nasm clang rustup ;; \
+			zypper) $$SUDO zypper install -y -t pattern devel_basis && $$SUDO zypper install -y nasm clang rustup ;; \
 			none) echo "  [ERROR] No supported package manager found, install tools manually."; exit 1 ;; \
 		esac; \
 	else \
 		echo "  [OK] All tools are already installed."; \
 	fi
+	@echo "==> Configuring rustup default toolchain..."
+	@rustup default stable 2>/dev/null || \
+		echo "  [!] Could not set default rustup toolchain"
+	@echo "==> Adding rustup targets (i686-unknown-none, x86_64-unknown-none)..."
+	@rustup target add i686-unknown-none x86_64-unknown-none 2>/dev/null || \
+		echo "  [!] Could not add Rust targets, check rustup installation"
 
 # ------------------------------------------------------------
 # Create build directories
@@ -143,7 +154,7 @@ clean:
 help:
 	@echo "Usage:"
 	@echo "  make            - install dependencies + build x32 + x64"
-	@echo "  make deps       - check/install nasm, clang, rustc only"
+	@echo "  make deps       - check/install nasm, clang, rustup only"
 	@echo "  make x32        - build i386 (32-bit) only"
 	@echo "  make x64        - build x86_64 (64-bit) only"
 	@echo "  make clean      - remove the build/ directory"
