@@ -1,4 +1,4 @@
-#include "include/kernel.h"
+#include "../../arch/aarch64/include/kernel.h"
 #include <stdint.h>
 
 
@@ -72,3 +72,4 @@ char uart_getc(void) {
 int uart_has_input(void) {
     return !(mmio_read32_uart(UART0_FR) & UART_FR_RXFE);
 }
+/* -------- The End of Line ------- */
