@@ -93,6 +93,12 @@ uint16_t pic_get_isr(void);
 void keyboard_handler(void);
 char keyboard_getchar(void);
 int  keyboard_has_input(void);
+int fat32_init(void);
+int fat32_ls(const char *path);
+int fat32_open(const char *path, uint8_t write);
+int fat32_read(int fd, uint8_t *buf, uint32_t len);
+int fat32_close(int fd);
+
 void     pit_init(uint32_t hz);
 void     pit_handler(void);
 uint32_t pit_get_ticks(void);
