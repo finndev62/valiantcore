@@ -1,15 +1,8 @@
 /*
  * ValiantCore Kernel
  * Copyright (C) 2026 bigpower
- *
- * This program is free software: you can redistribute it
- * and/or modify it under the terms of the GNU General
- * Public License as published by the Free Software
- * Foundation, version 3.
- *
- * SPDX-License-Identifier: GPL-3.0-only
+ * SPDX-License-Identifier: GPL-2.0-only
  */
-
 #include "../include/kernel.h"
 #include "../include/scheduler.h"
 
@@ -21,7 +14,7 @@ extern void net_init();
 
 void kmain() {
 
-   init_gdt();     // By BigPower
+   init_gdt();     // By Finn Dev
    pic_init();     // 
    pit_init(1000); // 
    init_idt();     //
@@ -30,7 +23,8 @@ void kmain() {
    kprint_banner();
 
    monitor_system_integrity();
- 
+   
+   fat32_init();
    vfs_init();
 
 
