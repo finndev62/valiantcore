@@ -5,7 +5,7 @@
 * SPDX-License-Identifier: GPL-2.0-only
 */
 
-#include "../arch/aarch64/include/kernel.h"
+#include <asm/kernel.h>
 
 extern void exceptions_init(void);
 extern void gic_init(void);
