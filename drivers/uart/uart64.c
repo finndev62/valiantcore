@@ -1,4 +1,4 @@
-#include "../../arch/aarch64/include/kernel.h"
+#include <asm/kernel.h>
 #include <stdint.h>
 
 
