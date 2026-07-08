@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration
-SRC_DIR="arch/aarch64"
+SRC_DIR="."
 # Main build directory now points to build/aarch64 at the project root
 BUILD_DIR="build/aarch64"
 TARGET="aarch64-linux-gnu"
