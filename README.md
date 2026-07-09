@@ -3,6 +3,7 @@
 Hello I'm Finn Dev 
 
 I plan to write a lightweight, user-friendly, fast, and secure operating system that supports both x86 and ARM architectures. I am starting by writing my own kernel from scratch—I will not be using any existing kernel. For my target OS, "BigPowerOS," I am building everything—including the kernel—entirely from the ground up. I am working with a zero-dollar budget and developing on a mobile device rather than a computer; if you would like to support me, you can do so by clicking the "Buy Me a Coffee" button.
+According to my research, new computers no longer support VGA text mode. Upon learning this, I started writing the ValiantCore framebuffer; soon, it will feature a framebuffer-based graphical interface instead of VGA text mode, and since users are accustomed to Linux fonts, I will be using a Linux font.
 
 
 
