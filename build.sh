@@ -38,7 +38,7 @@ fi
 
 # ── KERNEL FLAGS AND AUTOMATIC INCLUDE PATHS ────────────────────────────
 # -Iarch/aarch64/include allows you to use <asm/kernel.h> directly in C files.
-KERNEL_FLAGS="-ffreestanding -O2 -Iinclude -Iarch/aarch64/include"
+KERNEL_FLAGS="-ffreestanding -O2 -Iinclude -Iarch/aarch64/include/asm"
 CLANG_FLAGS="$CLANG_FLAGS $KERNEL_FLAGS"
 
 echo "Using flags: $CLANG_FLAGS"
