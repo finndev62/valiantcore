@@ -58,5 +58,7 @@ if (fb_tag) {
     
 }
 
+   font_init();
+
               while (1);
               }
