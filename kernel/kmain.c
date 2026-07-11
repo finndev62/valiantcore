@@ -5,6 +5,7 @@
  */
 #include "../include/kernel.h"
 #include "../include/scheduler.h"
+#include "../include/font.h"
 
 #define kprint_banner() kprint("--- ValiantCore OS Loading ---\n")
 extern void vfs_init();
@@ -26,6 +27,12 @@ void kmain() {
    
    fat32_init();
    vfs_init();
+
+   
+
+font_init(Uni2_Terminus16_psf);   
+font_set_color(0xFFFFFF, 0x0A0A2A);  
+fb_clear(0x0A0A2A);
 
 
    net_init();
