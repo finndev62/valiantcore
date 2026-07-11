@@ -46,5 +46,17 @@ fb_clear(0x0A0A2A);
 
           kprint("[KERNEL] ValiantCore ready.\n");
 
+         mb2_tag_framebuffer_t *fb_tag =
+    (mb2_tag_framebuffer_t *)mb2_find_tag(mb2_info, MB2_TAG_FRAMEBUFFER);
+
+if (fb_tag) {
+    fb_init(fb_tag->framebuffer_addr,
+            fb_tag->framebuffer_pitch,
+            fb_tag->framebuffer_width,
+            fb_tag->framebuffer_height,
+            fb_tag->framebuffer_bpp);
+    
+}
+
               while (1);
               }
