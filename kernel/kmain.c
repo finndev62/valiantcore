@@ -6,6 +6,7 @@
 #include "../include/kernel.h"
 #include "../include/scheduler.h"
 #include "../include/font.h"
+#include "../include/framebuffer.h"
 
 #define kprint_banner() kprint("--- ValiantCore OS Loading ---\n")
 extern void vfs_init();
