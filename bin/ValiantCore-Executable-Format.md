@@ -10,6 +10,9 @@ clang -target x86_64-none-elf -ffreestanding -nostdlib -O2 -c app.c -o app.o
 ld.lld -Ttext 0x100000 --image-base=0x100000 --oformat binary app.o -o app.bin
 
 # 3. Embed the signature with vef-pack
-./vef-pack app.bin welcome.vef
+./vef-pack x86_64 app.bin welcome.vef
 
 # Vef file can now be run for the ready-made file ValiantCore
+# This was for x86_64 architectures.
+
+```
