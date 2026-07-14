@@ -32,6 +32,7 @@ for aarch64
 clang -target aarch64-none-elf -ffreestanding -nostdlib -O2 -c app.c -o app.o
 
 ld.lld -Ttext 0x100000 --image-base=0x100000 --oformat binary app.o -o app.bin
+
 ./vef-pack aarch64 app.bin /bin/app_arm64.vef
 
 ```
