@@ -20,6 +20,7 @@ BUILD_RUSTX64 = $(BUILD_DIR)/rustX64
 # ------------------------------------------------------------
 C_SOURCES   := $(shell find . -name "*.c"   -not -path "./$(BUILD_DIR)/*")
 C_SOURCES   := $(filter-out %64.c,$(C_SOURCES))
+@head -n 1 $< | grep -Fq '/* Finn Dev */' && echo "Skipping tool: $<" || $(CC) -c $< -o $@
 ASM_SOURCES := $(shell find . -name "*.asm" -not -path "./$(BUILD_DIR)/*")
 RS_SOURCES  := $(shell find . -name "*.rs"  -not -path "./$(BUILD_DIR)/*")
 
