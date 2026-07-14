@@ -8,7 +8,7 @@ FRAMBUFFER The support has arrived!!!
 ```bash
 
 # fedora Distros:
-sudo dnf groupinstall "Development Tools" -y
+sudo dnf group install "Development Tools" -y
 # Debian Distros
 sudo apt install git build-essential -y
 # OpenSUSE Distro
