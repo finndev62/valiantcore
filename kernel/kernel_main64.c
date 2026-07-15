@@ -43,10 +43,14 @@ void kernel_main(void) {
    asm volatile ("msr daifclr, #0xf");
    uart_print("[OK] İnterrputs enabled\n");
 
+   ahci_init();
+   uart_print("[OK] AHCI/SATA Initialized\n");
+
    uart_print("\n");
    uart_print(" ValiantCore Aarch64 ready.\n");
    uart_print("Created By Finn Dev");
 
+   
    for (;;) {
       asm volatile ("wfe");
    }
