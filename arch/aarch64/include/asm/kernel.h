@@ -13,5 +13,9 @@ void uart_print(const char *s);
 char uart_getc(void);
 int  uart_has_input(void);
 void kernel_panic_aarch64(uint64_t esr, uint64_t elr);
-#endif
+int ahci_init(void);
+int ahci_read(uint64_t lba, uint16_t count, void *buf);
+int ahci_write(uint64_t lba, uint16_t count, const void *buf);
+
+#endif /* KERNEL_H */
 
