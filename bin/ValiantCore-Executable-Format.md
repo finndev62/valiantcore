@@ -24,7 +24,7 @@ clang -target i386-none-elf -ffreestanding -nostdlib -O2 -c welcome.c -o app.o
 ld.lld -Ttext 0x100000 --image-base=0x100000 --oformat binary app.o -o app.bin
 
 
-./vef-pack i386 app.bin /bin/app_i386.vef
+./vef-pack i386 app.bin app_i386.vef
 ```
 
 for aarch64
@@ -33,7 +33,7 @@ clang -target aarch64-none-elf -ffreestanding -nostdlib -O2 -c app.c -o app.o
 
 ld.lld -Ttext 0x100000 --image-base=0x100000 --oformat binary app.o -o app.bin
 
-./vef-pack aarch64 app.bin /bin/app_arm64.vef
+./vef-pack aarch64 app.bin app_arm64.vef
 
 ```
 WARNING: These architectures were written based on which architectures Valiant Core supports. If Valiant Core supports other architectures in the future, I will add them here.
