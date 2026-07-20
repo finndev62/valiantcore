@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = "configure" ]; then
+    # Open finndev interface right after installation if running interactively
+    if [ -t 0 ]; then
+        /usr/bin/finndev || true
+    fi
+fi
+
+exit 0

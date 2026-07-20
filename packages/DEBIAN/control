@@ -1,0 +1,10 @@
+Package: finndev
+Version: 1.0.0
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: FINN DEV <finndev62@github.com>
+Depends: python3, git, build-essential
+Description: FINN DEV Suite and ValiantCore automated build tool.
+ Includes quick access links to FINN DEV resources and automatic
+ cloning and compilation for ValiantCore and security lab repos.
