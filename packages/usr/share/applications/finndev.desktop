@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=FINN DEV
+Comment=FINN DEV Developer Tools & ValiantCore Builder
+Exec=finndev
+Icon=terminal
+Terminal=true
+Categories=Development;
