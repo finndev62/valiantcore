@@ -1,0 +1,122 @@
+#!/usr/bin/env python3
+import os
+import sys
+import subprocess
+import shutil
+
+# Color Codes
+GREEN = "\033[92m"
+CYAN = "\033[96m"
+YELLOW = "\033[93m"
+RESET = "\033[0m"
+BOLD = "\033[1m"
+
+def clear_screen():
+    os.system('clear' if os.name != 'nt' else 'cls')
+
+def check_and_install_packages(packages):
+    missing = []
+    for pkg in packages:
+        if not shutil.which(pkg):
+            missing.append(pkg)
+            
+    if missing:
+        print(f"{YELLOW}[*] Missing dependencies found: {', '.join(missing)}{RESET}")
+        print(f"{YELLOW}[*] Installing missing packages via apt...{RESET}")
+        try:
+            subprocess.run(["sudo", "apt", "update"], check=True)
+            subprocess.run(["sudo", "apt", "install", "-y"] + missing, check=True)
+        except Exception as e:
+            print(f"Error installing packages: {e}")
+            input("\nPress Enter to continue...")
+
+def center_text(text, width=80):
+    lines = text.split('\n')
+    return '\n'.join(line.center(width) for line in lines)
+
+def print_header():
+    clear_screen()
+    banner = f"""
+{CYAN}{BOLD}
+================================================================================
+  ______ _____ _   _ _   _   _____  _______   __
+ |  ____|_   _| \ | | \ | | |  __ \|  ___\ \ / /
+ | |__    | | |  \| |  \| | | |  | | |__  \ V / 
+ |  __|   | | | . ` | . ` | | |  | |  __|  > <  
+ | |     _| |_| |\  | |\  | | |__| | |___ / . \ 
+ |_|    |_____|_| \_|_| \_| |_____/|_____/_/ \_\\
+
+================================================================================
+{RESET}
+"""
+    print(banner)
+
+def open_url(url):
+    print(f"\n[*] Opening {url}...")
+    subprocess.run(["xdg-open", url], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
+
+def clone_c_security_lab():
+    print(f"\n{CYAN}[*] Checking for Git...{RESET}")
+    check_and_install_packages(["git"])
+    
+    home_dir = os.path.expanduser("~")
+    target_dir = os.path.join(home_dir, "C-Security-Lab")
+    
+    if os.path.exists(target_dir):
+        print(f"{YELLOW}[!] Repository C-Security-Lab already exists in home directory.{RESET}")
+    else:
+        print(f"{CYAN}[*] Cloning C-Security-Lab repository to ~/...{RESET}")
+        subprocess.run(["git", "clone", "https://github.com/C-Security-Lab", target_dir])
+        print(f"{GREEN}[+] C-Security-Lab repository cloned successfully!{RESET}")
+
+def build_valiantcore():
+    # First clone C-Security-Lab as requested
+    clone_c_security_lab()
+    
+    print(f"\n{CYAN}[*] Checking for build dependencies (git, build-essential/make)...{RESET}")
+    check_and_install_packages(["git", "make"])
+    
+    home_dir = os.path.expanduser("~")
+    target_dir = os.path.join(home_dir, "valiantcore")
+    
+    if os.path.exists(target_dir):
+        print(f"{YELLOW}[*] Updating existing ValiantCore repository...{RESET}")
+        subprocess.run(["git", "-C", target_dir, "pull"])
+    else:
+        print(f"{CYAN}[*] Cloning ValiantCore repository...{RESET}")
+        subprocess.run(["git", "clone", "https://github.com/finndev62/valiantcore.git", target_dir])
+    
+    print(f"{CYAN}[*] Compiling ValiantCore...{RESET}")
+    make_result = subprocess.run(["make", "-C", target_dir])
+    
+    if make_result.returncode == 0:
+        print(f"\n{GREEN}{BOLD}ValiantCore Object file compilation completed.{RESET}\n")
+    else:
+        print(f"\n{YELLOW}[!] Compilation failed with errors.{RESET}\n")
+        
+    input("Press Enter to return to menu...")
+
+def main_menu():
+    while True:
+        print_header()
+        print(f"{BOLD}[1]{RESET} Visit GitHub (github.com/finndev62)")
+        print(f"{BOLD}[2]{RESET} Visit Website (finndev62.github.io)")
+        print(f"{BOLD}[3]{RESET} Download and Compile ValiantCore Latest Source Code")
+        print(f"{BOLD}[4]{RESET} Exit")
+        print("\n" + "="*80)
+        
+        choice = input(f"\n{CYAN}Select an option [1-4]: {RESET}").strip()
+        
+        if choice == "1":
+            open_url("https://github.com/finndev62")
+        elif choice == "2":
+            open_url("https://finndev62.github.io")
+        elif choice == "3":
+            build_valiantcore()
+        elif choice == "4":
+            print("\nGoodbye!")
+            sys.exit(0)
+
+if __name__ == "__main__":
+    main_menu()
+    
